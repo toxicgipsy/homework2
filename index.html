@@ -7,5 +7,65 @@
   </head>
   <body>
     <h1>Домашнее задание</h1>
+
+    <script>
+      let a = 10;
+      console.log(`результат присвоения переменной ${a}`);
+      a = 20;
+      console.log(`результат переприсовения переменной ${a}`);
+      let iphone = 2007;
+      console.log(`дата выхода первого iphone ${iphone} год`);
+      let javaScript = String("Джон Уик");
+      console.log(`Создателя джава скрипта зову ${javaScript}`);
+      let b = 10;
+      let c = 2;
+      console.log(`результат сложения ${b + c}`);
+      console.log(`результат сочитания ${b - c}`);
+      console.log(`результат умножения ${b * c}`);
+      console.log(`результат деления ${b / c}`);
+      let result = 2 ** 5;
+      console.log(`результат возведения в степен 2**5 = ${result}`);
+      a = 9;
+      b = 2;
+      result = a % b;
+      console.log(`остаток от деления 9%2 = ${result}`);
+
+      let num = 1;
+      num += 5;
+      num -= 3;
+      num *= 7;
+      num /= 3;
+      num += 1;
+      num -= 1;
+      console.log(num);
+
+      let user = {
+        name: "Aman",
+        age: 34,
+        isAdmin: true,
+      };
+      console.log(typeof user.name);
+      console.log(typeof user.age);
+      console.log(typeof user.isAdmin);
+      console.log(user.name);
+      console.log(user.age);
+      console.log(user.isAdmin);
+
+      user["city of residence"] = "Москва";
+      console.log(typeof user["city of residence"]);
+      console.log(user["city of residence"]);
+      user.age = 30;
+      console.log(user.age);
+      delete user["city of residence"];
+   
+      let age = prompt(`сколько тебе лет?`);
+      console.log(`Тебе ${age} лет!`);
+
+      let info = prompt(`какую информацию хотите узнать о пользователе?`, user);
+      console.log(user[info]);
+
+      let name = prompt("Как тебя зову?");
+      console.log(name);
+    </script>
   </body>
 </html>
