@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let massiv = [
+      //   [1, 2, 3],
+      //   [4, 5, 6],
+      //   [7, 8, 9, [10, 11, 12]],
+      // ];
+      // for (const massivIn of massiv) {
+      //   console.log(`первая ступень массива ${massivIn}`);
+      //   for (const el of massivIn) {
+      //     console.log(`вторая ступень ${el}`);
+      //     if (Array.isArray(el)) {
+      //       for (const element of el) {
+      //         console.log(`третья ступень ${element}`);
+      //       }
+      //     }
+      //   }
+      // }
+
+      // let arrSum = [2, 3];
+      // const sumRes = (a, b) => {
+      //   let result = a + b;
+      //   return result;
+      // };
+
+      // console.log(
+      //   `результат с заданной переменной arrSum ` + sumRes(...arrSum)
+      // );
+
+      // function funcSum(...arrSum) {
+      //   let sum = 0;
+      //   for (const item of arrSum) {
+      //     sum += item;
+      //   }
+      //   return sum;
+      // }
+
+      // console.log(
+      //   `результат без переменной arrSum, в данно случае входящие параметры в стрелчной функции назвали также - arrSum ` +
+      //     funcSum(1, 2, 3, 4)
+      // );
+
+      // const newspaper = {
+      //   sports: {
+      //     title: "ARod Hits Home Run",
+      //     writers: ["Miramon Nuevo", "Rick Reilly", "Woddy Paige"],
+      //   },
+
+      //   business: {
+      //     title: "GE Stock Dips Again",
+      //     writers: ["Adam Smith", "Albert Humphrey", "Charles Handy"],
+      //   },
+
+      //   movies: {
+      //     title: "Superman Is A Flop",
+      //     writers: ["Rogert Ebert", "Andrew Sarris", "Wesley Morris"],
+      //   },
+      // };
+
+      // console.log(newspaper.sports.title);
+      // console.log(newspaper.sports.writers[0]);
+
+      const array = [1, 5, 4, 10, 0, 3];
+
+      for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+        if (array[i] == 10) break;
+      }
+
+      const findFour = [1, 5, 4, 10, 0, 3];
+      for (let i = 0; i < findFour.length; i++) {
+        if (findFour[i] === 4) {
+          console.log(`поиск индекса у 4 ` + i);
+          break;
+        }
+      }
+
+      const joinArr = [1, 3, 5, 10, 20];
+      let joinArrResalt = joinArr.join(" ");
+      console.log(`объединяем через пробел ` + joinArrResalt);
+
+      const multiArray = [
+        [1, 1, 1],
+        [1, 1, 1],
+        [1, 1, 1],
+      ];
+
+      for (const arrIn of multiArray) {
+        console.log(arrIn);
+        for (const el of arrIn) {
+          console.log(el);
+        }
+      }
+
+      const pushArray = [1, 1, 1];
+      let pushArrResult = pushArray.push(2, 2, 2);
+      console.log(`выводим общее количество чисел в массиве ` + pushArrResult);
+      console.log(`выводим новый массив с двойками ` + pushArray);
+
+      const sortAndDeleteArr = [9, 8, 7, "a", 6, 5];
+      let sortArr = sortAndDeleteArr
+        .sort()
+        .filter((item) => typeof item === "number");
+
+      console.log(`выводим массив без буквы ` + sortArr);
+
+      const rightArr = [9, 8, 7, 6, 5];
+      let userNumber = 9;
+
+      if (rightArr.includes(userNumber)) {
+        console.log("угадал");
+      } else {
+        console.log("не угадал");
+      }
+
+      // let found = false;
+
+      // for (const numb of rightArr) {
+      //   if (numb === userNumber) {
+      //     console.log("угадал");
+      //     found = true;
+      //     break;
+      //   }
+      // }
+      // if (!found) {
+      //   console.log("не угадал");
+      // }
+
+      let reverseLet = "abcdef";
+      console.log(reverseLet.split("").reverse().join(""));
+
+      const multiArr = [
+        [1, 2, 3],
+        [4, 5, 6],
+      ];
+      let merged = [...multiArr[0], ...multiArr[1]];
+      console.log(merged);
+
+      const arbitraryArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      for (let i = 0; i < arbitraryArray.length - 1; i++) {
+        console.log(arbitraryArray[i] + arbitraryArray[i + 1]);
+      }
+
+      const numArray = (a) => a.map((i) => i ** 2);
+      console.log(
+        `принимаем массив целых чисел, а возвращаем массив квадратов чисел ` +
+          numArray([2, 3, 4, 5, 6])
+      );
+
+      const strArray = (b) => b.map((item) => item.length);
+      console.log(strArray(["hello", "world", "i now javascirpt"]));
+
+      const negativeArray = (c) => c.filter((item) => item < 0);
+      console.log(negativeArray([1, 2, 3, 4, 5, -1, -2]));
+
+      const emptyArray = [];
+      for (let i = 0; i < 10; i++) {
+        emptyArray.push(Math.floor(Math.random() * 10));
+      }
+      let newRandArray = emptyArray.filter((i) => i % 2 === 0);
+      console.log(`четные числа из рандомного массива ` + newRandArray);
+
+      const randArray = [];
+      for (let i = 0; i < 6; i++) {
+        randArray.push(Math.floor(Math.random() * 10 + 1));
+      }
+      let sumRandArr = randArray.reduce((acc, cur) => acc + cur, 0);
+      let avg = sumRandArr / randArray.length;
+      console.log(`среднее арифметическое ` + avg);
+
+    </script>
+  </body>
+</html>

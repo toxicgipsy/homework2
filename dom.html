@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">Lorem</h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+      molestias.
+    </p>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+      molestias.
+    </p>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+      molestias.
+    </p>
+    <button id="button">Добавить</button>
+    <button id="removeButton">Удалить</button>
+
+    <div class="content"></div>
+
+    <script>
+      const titleEl = document.querySelector("#title");
+      const descriptionEl = document.querySelectorAll(".description");
+      const buttonEl = document.querySelector("#button");
+      const contentEl = document.querySelector(".content");
+      const removeButtonEl = document.querySelector("#removeButton");
+
+      //   buttonEl.addEventListener("click", function (e) {
+      //     //e - это информацмя об элементе, в данном случае о кнопке (координаты, сам элемент и тд)
+      //     console.log(1);
+      //   });
+
+      // buttonEl.addEventListener("click", () => {
+      //   descriptionEl.forEach((el) => {
+      //     el.textContent =
+      //       "Измененный текст после клика на нажимабельную кнопку";
+      //     el.style.color = "red";
+      //   });
+      // });
+
+      //   buttonEl.addEventListener("click", () => {
+      //     titleEl.classList.add("best_title");
+      //   });
+
+      // buttonEl.addEventListener("click", () => {
+      //   contentEl.innerHTML = `
+      //   <h1>Загаловок товара</h1>
+      //   <p>описание товара</p>
+      //   <button>Удалить товар</button>
+      //   <button>Добавить товар</button>`;
+      // });
+
+      buttonEl.addEventListener("click", () => {
+        const headingEl = document.createElement("h2");
+        headingEl.textContent = "Lorem ipsum dolor";
+        headingEl.classList.add("heading");
+        contentEl.append(headingEl);
+
+        const textEl = document.createElement("p");
+        textEl.textContent =
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, molestias";
+        textEl.classList.add("text");
+        contentEl.append(textEl);
+      });
+
+      removeButtonEl.addEventListener("click", () => {
+        descriptionEl.forEach((el) => {
+          el.remove();
+        });
+      });
+
+      removeButtonEl.addEventListener("click", () => {
+        descriptionEl.forEach((el) => {
+          el.remove();
+        });
+      });
+    </script>
+  </body>
+</html>

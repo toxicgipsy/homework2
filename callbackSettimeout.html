@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Тест 1
+      function callbackWithArrayLength(arr, callback) {
+        console.log(arr);
+        callback(arr.length);
+      }
+
+      callbackWithArrayLength([1], (length) => {
+        console.log(length);
+      });
+
+      callbackWithArrayLength([1, 1], (len) => {
+        console.log(len);
+      });
+
+      callbackWithArrayLength([1, 1, 1, 1, 1], (l) => {
+        console.log(l);
+      });
+
+      function log(arrItem) {
+        console.log("Элемент массива:", arrItem);
+      }
+
+      function each(arr, cb) {
+        for (let i = 0; i < arr.length; i++) {
+          cb(arr[i]);
+        }
+      }
+
+      each(["Глеб", "Олег", "Татьяна", "Платон"], log);
+
+      // Тест 2
+      function square(number) {
+        return number * number;
+      }
+
+      function squareRoot(number) {
+        return Math.sqrt(number);
+      }
+
+      function squareEachArrayItem(arr, funcRoot) {
+        let output = [];
+        for (let i = 0; i < arr.length; i++) {
+          output.push(funcRoot(arr[i]));
+        }
+        return output;
+      }
+
+      console.log(squareEachArrayItem([1, 4, 9, 16], square));
+      console.log(squareEachArrayItem([1, 4, 9, 16], squareRoot));
+
+      // Задание 1
+      const people = [
+        { name: "Глеб", age: 29 },
+        { name: "Анна", age: 17 },
+        { name: "Олег", age: 7 },
+        { name: "Оксана", age: 47 },
+      ];
+
+      console.log(people.sort((younger, oldest) => younger.age - oldest.age));
+
+      // Задание 2
+      function isPositive(number) {
+        return number > 0;
+      }
+
+      function isMale(persenGender) {
+        return persenGender.gender === "male";
+      }
+
+      function filter(arr, ruleFunction) {
+        let resultFilter = [];
+        for (let i = 0; i < arr.length; i++) {
+          const el = arr[i];
+          if (ruleFunction(el)) {
+            resultFilter.push(el);
+          }
+        }
+
+        return resultFilter;
+      }
+
+      console.log(filter([3, -4, 1, 9], isPositive));
+
+      const newPeople = [
+        { name: "Глеб", gender: "male" },
+        { name: "Анна", gender: "female" },
+        { name: "Олег", gender: "male" },
+        { name: "Оксана", gender: "female" },
+      ];
+
+      console.log(filter(newPeople, isMale));
+
+      // Задание 3
+      // const setIntervalFunction = () => {
+      //   let setIntervalVar = setInterval(() => {
+      //     console.log(new Date());
+      //   }, 3000);
+      //   let setClearVar = setTimeout(() => {
+      //     clearInterval(setIntervalVar);
+      //     console.log("30 секунд прошло");
+      //   }, 30000);
+
+      // };
+
+      // setIntervalFunction()
+      const setIntervalFunction = () => {
+        let count = 0;
+        let setIntervalVar = setInterval(() => {
+          console.log(new Date());
+          count++;
+          if (count === 10) {
+            clearInterval(setIntervalVar);
+            console.log("30 секунд прошло");
+          }
+        }, 3000);
+
+        return setIntervalVar;
+      };
+
+      // setIntervalFunction();
+
+      // Задание 4
+      function delayForSecond(callback) {
+        setTimeout(() => {
+          callback();
+        }, 1000);
+      }
+
+      // delayForSecond(function () {
+      //   console.log("Привет, Глеб!");
+      // });
+
+      // Задание 5
+      // Функция delayForSecond через 1 секунду пишет в консоль
+      // «Прошла одна секунда», а затем вызывает переданный колбэк
+      function delayForSecond(cb) {
+        setTimeout(() => {
+          console.log("Прошла одна секунда");
+          if (cb) {
+            cb();
+          }
+        }, 1000);
+      }
+
+      // Функция sayHi выводит в консоль приветствие для указанного имени
+      function sayHi(name) {
+        console.log("Привет, ${name}!");
+      }
+
+      // Код выше менять нельзя
+
+      // Нужно изменить код ниже:
+      delayForSecond(() => sayHi("Глеб"));
+
+      // Задание 5.1
+      function waitAndLog(message, cb) {
+        setTimeout(() => {
+          console.log("Секунда прошла");
+          if (cb) cb();
+        }, 1000);
+      }
+
+      function greet(name) {
+        console.log(`Привет, ${name}!`);
+      }
+
+      waitAndLog(null, () => greet("Anna"));
+
+      // Задание 5.2
+      function announce(msg) {
+        console.log("Сообщение: " + msg);
+      }
+
+      function cheer(name) {
+        console.log(`Ура, ${name}!`);
+      }
+
+      function waitAndDo(delay, cb) {
+        setTimeout(() => {
+          console.log("Прошло время!");
+          if (cb) cb();
+        }, delay);
+      }
+
+      waitAndDo(2000, () => cheer("Aman"));
+    </script>
+  </body>
+</html>

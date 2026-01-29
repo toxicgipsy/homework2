@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <body>
+    <h1 class="heading">Lorem, ipsum.</h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, neque?
+      1
+    </p>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, neque?
+      2
+    </p>
+    <p class="description">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, neque?
+      3
+    </p>
+    <p class="newDescription">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, neque?
+      4
+    </p>
+    <p class="newDescription">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, neque?
+      5
+    </p>
+    <div class="content"></div>
+    <button id="button">Click</button>
+    <button id="changeColorButton">Change color</button>
+    <button id="changeTitleButton">Change title</button>
+    <button id="changeTextButton">Change text</button>
+    <button id="newElement">Add new el</button>
+    <button id="deleteButton">Delete</button>
+
+    <script>
+      const headingEl = document.querySelector(".heading");
+      const descriptionEl = document.querySelector(".description");
+      const newDescriptionEl = document.querySelectorAll(".newDescription");
+      const content = document.querySelector(".content");
+      const buttonEl = document.querySelector("#button");
+      const changeColorButtonEl = document.querySelector("#changeColorButton");
+      const changeTitleButtonEl = document.querySelector("#changeTitleButton");
+      const changeTextButtonEl = document.querySelector("#changeTextButton");
+      const addNewElementEl = document.querySelector("#newElement");
+      const deleteButtonEl = document.querySelector("#deleteButton");
+
+      buttonEl.addEventListener("click", () => {
+        // headingEl.style.display === "block"
+        //   ? (headingEl.style.display = "none")
+        //   : (headingEl.style.display = "block");
+        headingEl.classList.toggle("hidden");
+      });
+
+      changeColorButtonEl.addEventListener("click", () => {
+        descriptionEl.style.color = "blue";
+      });
+
+      changeTitleButtonEl.addEventListener("click", () => {
+        headingEl.textContent = "It's a new heaing";
+      });
+
+      changeTextButtonEl.addEventListener("click", () => {
+        descriptionEl.forEach((el) => {
+          el.textContent = "Измененный текст";
+        });
+      });
+
+      changeTextButtonEl.addEventListener("click", () => {
+        newDescriptionEl.forEach((el) => {
+          el.textContent = "Новый текст";
+        });
+      });
+
+      addNewElementEl.addEventListener("click", () => {
+        const newEl = document.createElement("p");
+        newEl.textContent = "Новый абзац";
+        newEl.classList.add(".newDescription");
+        content.appendChild(newEl);
+      });
+
+      deleteButtonEl.addEventListener("click", () => {
+        // descriptionEl.remove();
+        const descriptionsEl = document.querySelectorAll(".description");
+        if (descriptionsEl.length >= 0) {
+          descriptionsEl[0].remove();
+        }
+      });
+    </script>
+  </body>
+</html>
