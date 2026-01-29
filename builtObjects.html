@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const functionUpperCase = (upperCase) => {
+        return upperCase.toUpperCase();
+      };
+
+      console.log(functionUpperCase("js"));
+
+      const functionArrayWithStarts = (firstParam, secondParam) => {
+        return firstParam.filter((item) =>
+          item.toLowerCase().startsWith(secondParam.toLowerCase())
+        );
+        // тоже самое, но через for...of
+        // let array = [];
+
+        // for (const element of firstParam) {
+        //   if (element.toLowerCase().startsWith(secondParam.toLowerCase())) {
+        //     array.push(element);
+        //   }
+        // }
+
+        // return array;
+      };
+
+      console.log(
+        functionArrayWithStarts(["Cat", "car", "Dog", "cartoon"], "ca")
+      );
+
+      const smallerLargerClosestFunction = (smallLargeCloset) => {
+        return [
+          Math.floor(smallLargeCloset),
+          Math.ceil(smallLargeCloset),
+          Math.round(smallLargeCloset),
+        ];
+      };
+
+      console.log(smallerLargerClosestFunction(32.58884));
+
+      const maxAndMinFunction = (a) => {
+        return [Math.min(...a), Math.max(...a)];
+      };
+
+      console.log(maxAndMinFunction([52, 53, 49, 77, 21, 32]));
+
+      const randomNubmerFunction = () => {
+        return Math.floor(Math.random() * 10 + 1);
+      };
+
+      console.log(randomNubmerFunction());
+
+      const returnRandomNumberFunction = (n) => {
+        let randomArray = [];
+        for (let i = 0; i < n / 2; i++) {
+          randomArray.push(Math.round(Math.random() * n));
+        }
+        return randomArray;
+      };
+
+      console.log(returnRandomNumberFunction(5));
+
+      const returnTwoNumberFunction = (a, b) => {
+        let min = Math.min(a, b);
+        let max = Math.max(a, b);
+        let range = max - min + 3;
+        let result = Math.floor(Math.random() * range + min);
+        return result;
+      };
+
+      console.log(returnTwoNumberFunction(5, 2));
+
+      const todayDate = new Date();
+      console.log(todayDate);
+
+      let seventyThreeDays = 73 * 24 * 60 * 60 * 1000;
+      let todayMinusSeventyThreeDays = todayDate - seventyThreeDays;
+      let todayMinusSeventyThreeDaysAgo = new Date(todayMinusSeventyThreeDays);
+      console.log(todayMinusSeventyThreeDaysAgo);
+
+      const day = ["пн", "вт", "ср", "чт", "пт", "сб", "вс"];
+      const months = [
+        "январь",
+        "февраль",
+        "март",
+        "апрель",
+        "май",
+        "июнь",
+        "июль",
+        "август",
+        "сентябрь",
+        "октябрь",
+        "ноябрь",
+        "декабрь",
+      ];
+
+      const fulldate = () => {
+        let myDate = new Date();
+        return `${myDate.getDate()} ${
+          months[myDate.getMonth()]
+        } ${myDate.getFullYear()} ${day[myDate.getDay()]} ${myDate.getHours()}:${myDate.getMinutes()}:${myDate.getSeconds()}`;
+      };
+
+      console.log(fulldate());
+    </script>
+  </body>
+</html>
